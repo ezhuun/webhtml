@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+* {
+	font-family: gulim;
+	font-size: 22px;
+}
+</style>
+</head>
+<body>
+
+	<h2>Math.round()의 사용</h2>
+	<hr/>
+	
+	<script type="text/javascript">
+		document.write(Math.round(3.4595)+"<br/>"); //3
+		document.write(Math.round(3.5595)+'<br/>'); //4
+		
+		document.write("<hr/>");
+		
+		var digits = Math.pow(10, 1); //10
+		var t = Math.round(3.5595 * digits); //35.595 -> 36
+		
+		document.write(t/digits + '<br/>'); // 36/10 -> 3.6
+		
+		digits = Math.pow(10, 2); //100
+		t = Math.round(3.5595 * digits); //355.95 -> 356
+		
+		document.write(t/digits + '<br/>'); // 356/100 = 3.56
+		
+	</script>
+
+</body>
+</html>

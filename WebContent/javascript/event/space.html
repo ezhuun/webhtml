@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function trimSpace(f) {
+		var str = f.txtData.value;
+		for (var i = 0; i < str.length; i++) {
+			/*
+			+---+---+---+---+
+			  0   1   2   3
+			+---+---+---+---+
+			  a   b       c
+			+---+---+---+---+
+			*/
+			
+			if (str.charAt(i) == ' ') {
+				alert("i+1="+(i+1)+" str.length="+str.length);
+				str = str.substring(0, i) + str.substring(i + 1, str.length);
+				i = i - 1;
+			}
+		}
+		f.txtData2.value = str;
+	}
+</script>
+</head>
+<body>
+
+	<form name="myform" method="get">
+		원본 문자열 : <input name="txtData" type="text" size=60 maxlength=60 />
+		<a href="javascript:trimSpace(myform)"><b>문자열 공백지우기</b></a>
+		<br /><br />
+		공백 제거 문자열 <input type="text" name="txtData2" size=60 maxlength=60 />
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<TITLE>자바 스크립트 예제</TITLE>
+<style type="text/css">
+* {
+	font-family: gulim;
+	font-size: 22px;
+}
+</style>
+<script type="text/javascript" src="./utility.js"></script>
+</HEAD>
+
+<BODY>
+	<H2>confirm의 사용 예제</H2>
+
+	<script type="text/javascript">
+		var temp;
+		temp = window.confirm("확인 또는 취소를 선택하세요");
+
+		//temp값은 true 또는 false
+		if (temp == true) {
+			pl("확인을 선택하셨군요: " + temp);
+		} else {
+			pl("취소를 선택하셨군요: " + temp);
+		}
+	</script>
+
+</BODY>
+</HTML>

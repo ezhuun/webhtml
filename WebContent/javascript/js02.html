@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+</script>
+<style type="text/css">
+* {
+	font-size: 30px;
+}
+</style>
+</head>
+<body>
+
+	<script type="text/javascript">
+		if (5 % 2 == 0) {
+			document.writeln("짝수");
+		} else {
+			document.writeln("홀수");
+		}
+		document.writeln("<br /><br />");
+
+		switch ('summer') {
+		case 'spring':
+			document.writeln("봄입니다");
+			break;
+		case 'summer':
+			document.writeln("여름입니다");
+			break;
+		case 'fall':
+			document.writeln("가을입니다");
+			break;
+		case 'winter':
+			document.writeln("겨울입니다");
+			break;
+		default:
+			document.writeln("해당하는 계절이 없습니다");
+			break;
+		}
+		document.writeln("<br /><br />");
+
+		var cnt = 0;
+		while (true) {
+			cnt = cnt + 1;
+			document.writeln("cnt = " + cnt + "<br />");
+			if(cnt == 5){
+				break;
+			}
+		}
+		document.writeln("<br />");
+		
+		cnt = 0;
+		while (cnt <= 5) {
+			cnt = cnt + 1;
+			document.writeln("cnt = " + cnt + "<br />");
+		}
+		document.writeln("<br />");
+		
+		for(cnt = 1; cnt <= 5; cnt++){
+			document.writeln("cnt = " + cnt + "<br />");
+		}
+		document.writeln("<br />");
+		
+		for(cnt = 5; cnt >= 1; cnt--){
+			document.writeln("cnt = " + cnt + "<br />");
+		}
+		document.writeln("<br />");
+		
+		
+	</script>
+
+</body>
+</html>

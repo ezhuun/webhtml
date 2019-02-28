@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>ez homepage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  <style>
+  	html, body{height:100%; font-family: 'Noto Sans KR', sans-serif;  background-color:#ECEDF0;}
+  	div{_border:1px solid;}
+  	a, a:link, a:hover, a:active, a:visited{text-decoration: none; color:inherit;}
+  	#wrap{position:relative; margin:0; padding:0; height:100%; width:100%;}
+  	#wrap-left{position:fixed; float:left; width:250px; height:100%; box-shadow:0 0 10px 0; vartical-align:top; overflow-x:hidden; -webkit-transition: all 1.0s; -moz-transition: all 1.0s; -o-transition: all 1.0s; transition: all 1.0s; z-index:99; background-color:#fff;}
+  	#wrap-rigth{float:right; width:calc(100% - 250px - 0px); height:100%; vartical-align:top; -webkit-transition: all 1.0s; -moz-transition: all 1.0s; -o-transition: all 1.0s; transition: all 1.0s;}
+  	
+  	.left_menu{height:90%; min-width:250px;}
+  	.left_menu ul, .left_menu ul > li {list-style:none; padding:0; margin:0;}
+  	.left_menu ul li{margin:10px; padding:5px; border-bottom:1px solid #BDBDBD; font-weight:bold;}
+	.left_menu ul li a:hover{color:#4374D9; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -o-transition: all 0.3s; transition: all 0.3s;}
+  	.left_menu ul li:first-child{border-bottom:1px dotted #BDBDBD;}
+	.left_menu ul li:first-child a{color:inherit; -webkit-transition: none; -moz-transition: none; -o-transition: none; transition: none;} 
+	.left_menu ul li ul li:first-child{border-bottom:none;}
+	.left_menu ul li ul li a:hover{color:hotpink; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -o-transition: all 0.3s; transition: all 0.3s;} 
+	.left_menu ul li ul li{border-bottom:none; font-weight:normal; margin:0 0 0 5px;}
+	.logo_title{font-size:20px; font-weight:bold;}
+
+  	.out{position:absolute; clear:both; width:0px !important; overflow:hidden;  -webkit-transition: all 1.0s; -moz-transition: all 1.0s; -o-transition: all 1.0s; transition: all 1.0s;}
+  	.wexp{width:100% !important; -webkit-transition: all 1.0s; -moz-transition: all 1.0s; -o-transition: all 1.0s; transition: all 1.0s; }
+  	.mark{position:fixed; width:100%; height:100%; background-color:#000; opacity:0.3; -webkit-transition: all 1.0s; -moz-transition: all 1.0s; -o-transition: all 1.0s; transition: all 1.0s; z-index:1;}
+
+  	#right_header{position:fixed;  min-width:375px; padding:40px 15px; background-color:inherit; z-index:99; color:#BAC2C4; width:calc(100% - 250px - 0px); -webkit-transition: all 1.0s; -moz-transition: all 1.0s; -o-transition: all 1.0s; transition: all 1.0s;}
+  	#right_content{position:relative; min-width:375px; padding:0;}
+  	#right_footer{position:relative; min-width:375px; padding:0; background-color:#272A2C; color:#fff; min-height:100px;}
+ 
+ 	#right_header ul, right_header ul > li{list-style:none; padding:0; margin:0;}
+	#right_header ul li{float:left; margin-right:20px;}
+	#right_header ul li:last-child{margin-right:0;}
+
+  	#main_banner{background-color:#272A2C; color:#ffffff; height:600px; background-position: 50% 50%; transform: translate3d(0, 0, 0);}
+	#mainimg{position:absolute;  width:100%; top:0;  height:600px; z-index:-1; opacity:0; background-size:cover; background-color:#000000; -webkit-transition: all 8.0s ease; -moz-transition: all 8.0s ease; -o-transition: all 8.0s ease; transition: all 8.0s ease; transition-delay: 3.0s;}
+	
+	#main_page{position:relative; top:-40px; left:5%;width:90%; border:1px solid #efefef; background-color:#fff; box-shadow: 0px 0px 20px #000; padding:10px; overflow:hidden; word-break:break-all; -webkit-transition: all 0.5s ease-out; -moz-transition: all 0.5s ease-out; -o-transition: all 0.5s ease-out; transition: all 0.5s ease-out;}
+
+	.glyphicon-heart{color:red;}
+	#myalert{position:fixed; top:5px; z-index:999; width:100%; }
+	
+
+  </style>
+  <script>
+  	window.onload = function(){
+		//메인배경변경
+		var ranNum = Math.ceil(Math.random()*10);
+		document.getElementById("mainimg").style.background="url(./images/"+ranNum+".jpg) no-repeat center center";
+		document.getElementById("mainimg").style.opacity="0.3";
+
+		//페이지 로드시 토글 on/off 처리
+  		if(sessionStorage.getItem("toggleOn") == 1){
+  			toggleLeftMenu();
+  		}
+  	}
+
+	//esc처리1
+	window.addEventListener('keyup', function(e){
+		if(e.key == "Escape"){
+			if(document.getElementById("markup").classList.contains("mark")){
+				if(!document.getElementById("wrap-left").classList.contains("out")){
+					if(document.getElementById("myalert").style.display=="none"){
+						toggleLeftMenu();
+					}
+				}
+			}
+		}
+	});
+
+	//esc처리2
+	window.addEventListener('keyup', function(e){
+		if(e.key == "Escape"){
+			if(document.getElementById("myalert").style.display=="block"){
+					document.getElementById('myalert').style.display='none';
+			}
+		}
+	});
+
+
+	//디바운딩 함수(지연함수,클로져함수)
+	function debounce(fn, delay){
+		var timer = null;
+		return function(){
+			clearTimeout(timer);
+			timer = setTimeout(function(){
+				fn.apply();
+			}, delay);
+		};
+	}
+
+	//header영역 스크롤링
+	window.addEventListener('scroll', debounce(headerScrolling, 10));
+	function headerScrolling(){
+		var obj = document.getElementById("right_header");
+		if(window.scrollY == 0){
+			obj.style.backgroundColor="inherit";
+			obj.style.color="#BAC2C4";
+			obj.style.padding="40px 15px";
+			obj.style.boxShadow="none";
+		}else{
+			obj.style.backgroundColor="#ffffff";
+			obj.style.color="#212121";
+			obj.style.padding="13px 15px";
+			obj.style.boxShadow="0 3px 10px 0 #999";
+		}
+	}
+	window.addEventListener('scroll', debounce(mainPageScrolling, 10));
+	var lastScrollTop = 0;
+	function mainPageScrolling(){
+		var obj = document.getElementById("main_page");
+		var obj2 = document.getElementById("right_header");
+		var obj3 = document.getElementById("main_banner");
+		var y = (obj.offsetTop-window.scrollY)-(obj2.offsetHeight+30);
+		var _y = ((obj3.offsetTop + obj3.offsetHeight)-window.scrollY)-(obj2.offsetHeight+30);
+		if (window.scrollY > lastScrollTop){
+			if(y<=0 && _y>=0){
+				obj.style.top="-"+(_y)+"px";
+			}
+		}else{
+			if(y>=0 && _y<=40){
+				obj.style.top=(_y*-1)+"px";
+			}
+		}
+		lastScrollTop = window.scrollY;
+	}
+
+  //왼쪽메뉴 토글
+  function toggleLeftMenu(){
+	  var obj = document.getElementById("wrap-left");
+	  var obj2 = document.getElementById("wrap-rigth");
+	  var obj3 = document.getElementById("markup");
+	  var obj4 = document.getElementById("right_header");
+	  var obj5 = document.getElementById("toggleMenu");
+	  if(obj.classList.contains("out")){
+		  obj.classList.remove("out");
+		  obj2.classList.remove("wexp");
+		  obj3.classList.add("mark");
+		  obj3.onclick=function(){toggleLeftMenu();};
+		  obj4.classList.remove("wexp");
+		  obj5.classList.remove("glyphicon-th-list");
+		  obj5.classList.add("glyphicon-remove");
+		  sessionStorage.setItem("toggleOn", 1);
+	  }else{
+		  obj.classList.add("out");
+		  obj2.classList.add("wexp");
+		  obj3.classList.remove("mark");
+		  obj3.onclick="";
+		  obj4.classList.add("wexp");
+		  obj5.classList.add("glyphicon-th-list");
+		  obj5.classList.remove("glyphicon-remove");
+		  sessionStorage.setItem("toggleOn", 0);
+	  }
+  }
+
+  //알림창
+  function myalert(strContent, strHeader){
+	var obj = document.getElementById("myalert");
+	if(typeof strHeader != "undefined"){
+		if(strHeader.trim().length > 0 ){
+			obj.querySelector(".modal-title").innerHTML = strHeader;
+		}
+	}
+	if(typeof strContent != "undefined"){
+		if(strContent.trim().length > 0 ){
+			obj.querySelector(".modal-body").innerHTML = "<p>"+strContent+"</p>";
+		}
+	}
+	obj.style.display="block";
+  }
+  </script>
+</head>
+<body>
+ 
+  <!-- 전체 -->
+  <div id="wrap">
+		<!-- 워터마크 효과(배경투명) -->
+		<div id="markup"></div>
+
+		<!-- 알림창 -->
+		<div id="myalert" style="display: none;">
+		<div class="mark"></div>
+			<div class="row">
+				<div class="col-sm-offset-5 col-sm-3 col-sm-offset-5" style="z-index:9999;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">알림</h4>
+						</div>
+						<div class="modal-body">
+							<p>준비중입니다</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" onclick="document.getElementById('myalert').style.display='none';">닫기</button>
+						</div>
+					</div>
+
+				</div>
+				
+			</div>
+		</div>
+ 
+		<!-- 왼쪽 -->
+		<div id="wrap-left" class="out">
+			<div class="left_menu">
+				<ul>
+					<li>
+						<a href="./index.html">
+						<span class="glyphicon glyphicon-qrcode" style="font-size:25px;"></span> <span class="logo_title">ezhomepage</span>
+						</a>
+						<br/><br/>
+					</li>
+					<li><a href="javascript:myalert();">월요일</a>
+						<ul>
+							<li><a href="javascript:myalert();">- 아침</a>
+								<ul>
+									<li><a href="javascript:myalert();">= 먹고</a></li>
+									<li><a href="javascript:myalert();">= 간식</a></li>
+								</ul>
+							</li>
+							<li><a href="javascript:myalert();">- 점심</a></li>
+							<li><a href="javascript:myalert();">- 저녁</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:myalert();">화요일</a><span class="badge" style="float:right; margin-right:5px;">5</span></li>
+					<li><a href="javascript:myalert();">수요일</a></li>
+					<li><a href="javascript:myalert();">목요일</a></li>
+					<li><a href="javascript:myalert();">금요일</a></li>
+					<li><a href="javascript:myalert();">토요일</a></li>
+					<li><a href="javascript:myalert();">일요일</a></li>
+
+				</ul>
+			</div>
+		</div>
+		<!-- 왼쪽 끝 -->
+		
+		<!-- 오른쪽 -->
+		<div id="wrap-rigth" class="wexp">
+ 
+			<!-- header -->
+			<div id="right_header" class="wexp">
+				<span id="toggleMenu" class="glyphicon glyphicon-remove" style="cursor:pointer;" onclick="toggleLeftMenu();"> Menu</span>
+				<div style="float:right;">
+					<ul>
+						<li><a href="javascript:myalert();"><span class="glyphicon glyphicon-pencil"></span> Sign up</a></li>
+						<li><a href="./login.html"><span class="glyphicon glyphicon-heart-empty"></span> Sign in</a></li>
+						<li><a href="javascript:myalert();"><span class="glyphicon glyphicon-heart"></span> Sign out</a></li>
+					</ul>
+				</div>
+			</div>
+ 
+			<!-- content -->
+			<div id="right_content">
+				<div id="main_banner">
+					<div id="mainimg"></div>
+					<div style="position:relative; height:100%; top:30%; text-align:center;">
+						<span style="font-size:40px;">Welcome to<br/>ezhomepage<br>가나다라마바사<br>아자차카타파하하하하하하</span>
+					</div>
+				</div>
+ 
+				<div id="main_page">
+					<h2>content</h2>
+					#1
+					<img src="./images/1.jpg" class="img-responsive" alt="Responsive image">
+					<br/>
+					#2
+					<img src="./images/2.jpg" class="img-responsive" alt="Responsive image">
+					<br/>
+					#3
+					<img src="./images/3.jpg" class="img-responsive" alt="Responsive image">
+					<br/>
+				</div>
+			</div>
+ 
+			<!-- footer -->
+			<hr/>
+			<div id="right_footer">
+				<span style="position:absolute; width:100%; text-align:center; bottom:10px; font-weight:bold; font-weight:normal;">Copyright 2019. </span>
+			</div>
+ 
+		</div>
+		<!-- 오른쪽 끝 -->
+ 
+	</div>
+	<!-- 전체 끝-->
+</body>
+ 
+</html>

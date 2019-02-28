@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>js01</title>
+
+
+<style>
+* {
+	font-size: 30px;
+}
+</style>
+<script type="text/javascript">
+	var url1 = 'http://www.kma.go.kr';
+	document.writeln('1) 전역 url1 : ' + url1 + '<br />');
+	
+	function fun1() {
+		var url1 = 'http://www.daum.net';
+		document.writeln('2) 지역 url1 : ' + url1 + '<br />');
+	}
+	fun1();
+	document.writeln('3) 전역 url1 : ' + url1 + '<br />');
+	
+	function fun2() {
+		document.writeln('4) 전역 url1 : ' + url1 + '<br />');
+	}
+	fun2();
+	
+	function fun3() {
+		document.writeln('5/3 = ' + (5 / 3) + '<br />');  //1.66666666667
+		document.writeln('5%3 = ' + (5 % 3) + '<br />');  //2
+	}
+	fun3();
+	
+	function fun4(){
+		document.writeln("2019"+"2020");	//20192020
+		document.writeln("<br />");
+		document.writeln(2019+2020);	//4039
+		document.writeln("<br />");
+		
+		var kor = parseInt('90');
+		var eng = parseFloat('90.5');
+		var tot = kor + eng;
+		document.writeln("kor : "+kor);
+		document.writeln("<br />");
+		document.writeln("eng : "+eng);
+		document.writeln("<br />");
+		document.writeln("tot : "+tot);
+		document.writeln("<br />");
+	}
+	fun4();
+</script>
+</head>
+<body>
+</body>
+</html>

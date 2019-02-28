@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<TITLE>자바 스크립트 예제</TITLE>
+<style type="text/css">
+* {
+	font-family: gulim;
+	font-size: 22px;
+}
+</style>
+</head>
+<body>
+	<H2>split() 함수</H2>
+	<HR>
+
+	<script type="text/javascript">
+		/*
+		 가길동, 100, 90
+		 나길동, 100, 90
+		 다길동, 100, 90
+		 */
+
+		// 총점과 평균을 출력하는 스크립트를 작성하세요.(java: split(), StringTokenizer)
+		var DTOlist = '가길동, 100, 90/나길동, 100, 90/다길동, 100, 90';
+
+		// '/'로 구분된 배열 리턴, 일반 변수와 배열이 구분없이 쓰임
+		var arrayDTO = DTOlist.split('/');
+
+		for (var i = 0; i < arrayDTO.length; i++) {
+			document.write(arrayDTO[i] + '<br/>');
+		}
+
+		document.write("<HR>");
+		document.write('<br/>성적 계산 목록' + '<br/><br/>');
+
+		for (i = 0; i < arrayDTO.length; i++) {
+			var dto = arrayDTO[i];
+			var str = dto.split(','); // 1차원 배열
+
+			document.write('성명: ' + str[0] + '<br/>');
+			document.write('영어: ' + str[1] + '<br/>');
+			document.write('수학: ' + str[2] + '<br/>');
+
+			var eng = parseInt(str[1]); // 정수로 형변환
+			var mat = parseInt(str[2]);
+
+			document.write('총점: ' + (eng + mat) + '<br/>');
+			document.write('평균: ' + ((eng + mat) / 2) + '<br/>');
+			document.write('-----------------------------<br/>');
+		}
+	</script>
+</body>
+</html>

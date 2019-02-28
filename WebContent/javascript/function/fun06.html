@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<TITLE>자바 스크립트 예제</TITLE>
+<style type="text/css">
+* {
+	font-family: gulim;
+	font-size: 22px;
+}
+</style>
+<script language="Javascript" src="./utility.js"></script>
+</HEAD>
+
+<BODY>
+	<H2>
+		isFinite<br>
+
+		<script type="text/javascript">
+			var temp1, temp2;
+
+			// 메시지, 기본값
+			temp1 = prompt("값을 입력하세요", 100);
+
+			// 숫자인지 검사
+			if (isFinite(temp1) == true) {
+				pl(temp1 + "은 유한한 숫자");
+			} else {
+				pl(temp1 + "은 무한대이거나 숫자가 아님");
+			}
+		</script>
+
+	</H2>
+</BODY>
+</HTML>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<TITLE>자바 스크립트 예제</TITLE>
+<style type="text/css">
+* {
+	font-family: gulim;
+	font-size: 22px;
+}
+</style>
+<script type="text/javascript" src="./utility.js"></script>
+</HEAD>
+
+<BODY>
+	<H1>eval</H1>
+	<H2>
+		<script type="text/javascript">
+			var temp1, temp2;
+
+			temp1 = prompt("수식을 입력하세요", "(10+20)/2"); // 입력값을 문자열 처리
+
+			// 문자열이 명령어로 전환, 문자열을 스크립트로 형 변환함, 연산 가능 숫자로 변경
+			temp2 = "계산결과는 " + eval(temp1) + " 입니다";
+			pl('temp2: ' + temp2);
+		</script>
+	</H2>
+</BODY>
+</HTML>

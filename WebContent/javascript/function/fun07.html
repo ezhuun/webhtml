@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<TITLE>자바 스크립트 예제</TITLE>
+<style type="text/css">
+* {
+	font-family: gulim;
+	font-size: 22px;
+}
+</style>
+<script language="text/javascript" src="./utility.js"></script>
+</HEAD>
+
+<BODY>
+	<script type="text/javascript">
+		var temp1;
+
+		// 숫자 형태는 전부 숫자임. 
+		// temp1=prompt("값을 입력하세요", "100.5");
+		temp1 = prompt("값을 입력하세요", 100.5);
+
+		// 문자열 형태
+		// temp1=prompt("값을 입력하세요", "백");
+
+		if (isNaN(temp1) == true) {
+			document.write(temp1 + "은 문자임<br>");
+		} else {
+			document.write(temp1 + "은 숫자임<br>");
+		}
+	</script>
+
+</BODY>
+</HTML>

@@ -1,0 +1,10 @@
+@charset "UTF-8";
+body{background-color:#A566FF; text-align:center;}
+h1.h{color:#0054FF;}
+p.p01{color:#1DDB16;}
+p.p02{color:#FAED7D;}
+p.p03{color:#FF007F;}
+a:link{color:#000000; background-color:transparent; text-decoration:none;} 
+a:visited{color:#000000; background-color:transparent; text-decoration:none;} 
+a:hover{color:#ff0000; background-color:transparent; text-decoration:underline;} 
+a:active{color:#ff0000; background-color:transparent; text-decoration:underline;}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+* {
+	font-family: gulim;
+	font-size: 22px;
+}
+</style>
+<script language="Javascript" src="./core/utility.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		var no = 123.456;
+		pl('1) ' + Math.ceil(no));
+		pl('2) ' + Math.floor(no));
+		pl('3) ' + Math.round(123.56));
+
+		no = no * 10;
+		no = no + 0.5;
+		no = parseInt(no);
+		pl('4) ' + no);
+		no = no / 10;
+		pl('5)소수 첫째짜리 반올림 ' + no);
+		
+		no = 123.456;
+		no = no.toFixed(1);
+		pl('6)소수 첫째짜리 반올림 ' + no);
+		
+		no = 123.456;
+		no = no.toFixed(2);
+		pl('7)소수 둘째짜리 반올림 ' + no);
+		
+		
+		no = 9999;
+		no = no / 100;
+		pl(no);
+		no = Math.floor(no);
+		pl(no);
+		no = no * 100;
+		pl(no);
+		pl('8) 10원 단위까지 절사 ' + no);
+	</script>
+</body>
+</html>

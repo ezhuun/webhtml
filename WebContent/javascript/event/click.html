@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<style type="text/css">
+* {
+	font-family: gulim;
+	font-size: 22px;
+}
+</style>
+
+<script type="text/javascript">
+	function sendit() {
+		/*
+		document: 브러우저에 출력된 문서를 나타내는 객체, 문서 전체 접근
+		regiform: 폼 객체
+		url: INPUT관련 객체
+		value: INPUT관련 객체의 속성
+		 */
+		// str = document.frm.url.value;
+		str = document.getElementById("url").value;
+		//alert(str);
+		if (str == "") {
+			alert("주소를 입력해 주세요");
+			document.frm.url.focus(); // 마우스 커서 이동 예) 전화번호 입력: 000 0000 0000
+		} else {
+			str = str.toLowerCase();
+			if (str.indexOf("http://") < 0) {
+				str = "http://" + str;
+			}
+			location.href = str; // location 객체: 주소 관련 객체, href: 주소 값, 이동
+		}
+	}
+</script>
+
+</head>
+<body>
+	<form name="frm" method="post" onsubmit="return false">
+		<!-- id  : 태그 검색시 자바 스크립트가 사용, document.getElementById('url');
+         name: request.getParameter("url") -->
+		<input type="text" id="url" name="url" size="50" onKeyup="javascript:if(event.keyCode=='13'){sendit();}" />
+		<a href="javascript: sendit();">주소 이동</a>
+		<input type="button" onclick="sendit();" value="주소이동" />
+		<br />
+		<input type="button" value="다음" onclick="frm.url.value='http://www.daum.net';" />
+		<input type="button" value="기상청" onclick="frm.url.value='http://www.kma.go.kr';" />
+		<input type="button" value="교보문고" onclick="frm.url.value='http://www.kyobobook.co.kr';" />
+	</form>
+</body>
+</html>

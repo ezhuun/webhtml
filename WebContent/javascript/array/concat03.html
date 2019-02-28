@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Joining Three Arrays</h1>
+
+	<p id="demo"></p>
+
+	<script>
+		var arr1 = [ "Cecilie", "Lone" ];
+		var arr2 = [ "Emil", "Tobias", "Linus" ];
+		var arr3 = [ "Robin", "Morgan" ];
+		
+		var myChildren = arr1.concat(arr2, arr3);
+		
+		document.getElementById("demo").innerHTML = myChildren;
+	</script>
+</body>
+</html>

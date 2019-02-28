@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+* {
+	font-family: gulim;
+	font-size: 22px;
+}
+</style>
+</head>
+<body>
+	<H2>연산자</H2>
+	<HR>
+	<script type="text/javascript">
+		var i = 10;
+		var j = 3;
+		
+		pl("더하기: " + (i + j));
+		pl("빼기: " + (i - j));
+		pl("곱하기: " + (i * j));
+		pl("나누기: " + (i / j)); // 정수/정수=실수 (*)
+		pl("나머지: " + (i % j));
+		
+		function pl(str){
+		  document.write(str + "<br><br>");
+		}
+	</script>
+</body>
+</html>

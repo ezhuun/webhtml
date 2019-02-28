@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>ez homepage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  
+  <style>
+  	html, body{height:100%; font-family: 'Noto Sans KR', sans-serif;  background-color:#ECEDF0;}
+  	div{_border:1px solid;}
+  	a, a:link, a:hover, a:active, a:visited{text-decoration: none; color:inherit;}
+  	#wrap{position:relative; margin:0; padding:0; height:100%; width:100%;}
+  	#wrap-left{position:fixed; float:left; width:250px; height:100%; box-shadow:0 0 10px 0; vartical-align:top; overflow-x:hidden; -webkit-transition: all 1.0s; -moz-transition: all 1.0s; -o-transition: all 1.0s; transition: all 1.0s; z-index:99; background-color:#fff;}
+  	#wrap-rigth{float:right; width:calc(100% - 250px - 0px); height:100%; vartical-align:top; -webkit-transition: all 1.0s; -moz-transition: all 1.0s; -o-transition: all 1.0s; transition: all 1.0s;}
+  	
+  	.left_menu{height:90%; min-width:250px;}
+  	.left_menu ul, .left_menu ul > li {list-style:none; padding:0; margin:0;}
+  	.left_menu ul li{margin:10px; padding:5px; border-bottom:1px solid #BDBDBD; font-weight:bold;}
+	.left_menu ul li a:hover{color:#4374D9; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -o-transition: all 0.3s; transition: all 0.3s;}
+  	.left_menu ul li:first-child{border-bottom:1px dotted #BDBDBD;}
+	.left_menu ul li:first-child a{color:inherit; -webkit-transition: none; -moz-transition: none; -o-transition: none; transition: none;} 
+	.left_menu ul li ul li:first-child{border-bottom:none;}
+	.left_menu ul li ul li a:hover{color:hotpink; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; -o-transition: all 0.3s; transition: all 0.3s;} 
+	.left_menu ul li ul li{border-bottom:none; font-weight:normal; margin:0 0 0 5px;}
+	.logo_title{font-size:20px; font-weight:bold;}
+
+  	.out{position:absolute; clear:both; width:0px !important; overflow:hidden;  -webkit-transition: all 1.0s; -moz-transition: all 1.0s; -o-transition: all 1.0s; transition: all 1.0s;}
+  	.wexp{width:100% !important; -webkit-transition: all 1.0s; -moz-transition: all 1.0s; -o-transition: all 1.0s; transition: all 1.0s; }
+  	.mark{position:fixed; width:100%; height:100%; background-color:#000; opacity:0.3; -webkit-transition: all 1.0s; -moz-transition: all 1.0s; -o-transition: all 1.0s; transition: all 1.0s; z-index:1;}
+
+  	#right_header{position:fixed;  min-width:375px; padding:40px 15px; background-color:inherit; z-index:99; color:#BAC2C4; width:calc(100% - 250px - 0px); -webkit-transition: all 1.0s; -moz-transition: all 1.0s; -o-transition: all 1.0s; transition: all 1.0s;}
+  	#right_content{position:relative; min-width:375px; padding:0;}
+  	#right_footer{position:relative; min-width:375px; padding:0; background-color:#272A2C; color:#fff; min-height:100px;}
+ 
+ 	#right_header ul, right_header ul > li{list-style:none; padding:0; margin:0;}
+	#right_header ul li{float:left; margin-right:20px;}
+	#right_header ul li:last-child{margin-right:0;}
+
+  	#main_banner{background-color:#272A2C; color:#ffffff; height:600px; background-position: 50% 50%; transform: translate3d(0, 0, 0);}
+	#mainimg{position:absolute;  width:100%; top:0;  height:600px; z-index:-1; opacity:0; background-size:cover; background-color:#000000; -webkit-transition: all 8.0s ease; -moz-transition: all 8.0s ease; -o-transition: all 8.0s ease; transition: all 8.0s ease; transition-delay: 3.0s;}
+	
+	#main_page{position:relative; top:-40px; left:5%;width:90%; border:1px solid #efefef; background-color:#fff; box-shadow: 0px 0px 20px #000; padding:10px; overflow:hidden; word-break:break-all; -webkit-transition: all 0.5s ease-out; -moz-transition: all 0.5s ease-out; -o-transition: all 0.5s ease-out; transition: all 0.5s ease-out;}
+
+	.glyphicon-heart{color:red;}
+	#myalert{position:fixed; top:5px; z-index:999; width:100%; }
+	
+
+  </style>
+  <script>
+	//esc처리2
+	window.addEventListener('keyup', function(e){
+		if(e.key == "Escape"){
+			if(document.getElementById("myalert").style.display=="block"){
+					document.getElementById('myalert').style.display='none';
+			}
+		}
+	});
+
+  //알림창
+  function myalert(strContent, strHeader){
+	var obj = document.getElementById("myalert");
+	if(typeof strHeader != "undefined"){
+		if(strHeader.trim().length > 0 ){
+			obj.querySelector(".modal-title").innerHTML = strHeader;
+		}
+	}
+	if(typeof strContent != "undefined"){
+		if(strContent.trim().length > 0 ){
+			obj.querySelector(".modal-body").innerHTML = "<p>"+strContent+"</p>";
+		}
+	}
+	obj.style.display="block";
+  }
+  </script>
+</head>
+<body>
+ 
+  <!-- 전체 -->
+  <div id="wrap">
+		<!-- 워터마크 효과(배경투명) -->
+		<div id="markup"></div>
+
+		<!-- 알림창 -->
+		<div id="myalert" style="display: none;">
+		<div class="mark"></div>
+			<div class="row">
+				<div class="col-sm-offset-5 col-sm-3 col-sm-offset-5" style="z-index:9999;">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">알림</h4>
+						</div>
+						<div class="modal-body">
+							<p>준비중입니다</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" onclick="document.getElementById('myalert').style.display='none';">닫기</button>
+						</div>
+					</div>
+
+				</div>
+				
+			</div>
+		</div>
+		<div style="">
+			<div style="padding:25px 0; text-align:center;">
+				<a href="./index.html"><span class="glyphicon glyphicon-qrcode" style="font-size:35px;"></span></a>
+			</div>
+
+			<div style="text-align:center;">
+				<span class="logo_title">Sine in to ezhomepage</span>
+			</div>
+
+			<div class="row" style="">
+
+				<div class="col-sm-offset-4 col-sm-4 col-sm-offset-4" style="padding:0;">
+					<div style="padding:20px; background-color:#fff; border:1px solid #D8DEE2; border-radius:8px;"> 
+						<form>
+							<div class="form-group">
+								<label for="exampleInputEmail1">Username or email</label>
+								<input type="email" class="form-control" id="exampleInputEmail1" placeholder="아이디 또는 이메일">
+							</div>
+							<div class="form-group">
+								<label for="exampleInputPassword1">Password</label>
+								<input type="password" class="form-control" id="exampleInputPassword1" placeholder="암호">
+							</div>
+							<div class="form-group">
+								<p class="help-block">암호를 잊어버리셨나요?</p>
+							</div>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox"> 입력을 기억합니다
+								</label>
+							</div>
+							<div class="form-group text-right">
+								<button type="button" class="btn btn-primary" onclick="myalert();">들어가기</button>
+							</div>
+						</form>
+					</div>
+
+					<hr/>
+					<div style="padding:10px; background-color:#fff; border:1px solid #D8DEE2; border-radius:8px; text-align:center; color:#037DE0"> 
+						<a href="javascript:myalert();">회원가입은 여기를 클릭해주세요</a>
+					</div>	
+				</div>
+
+			</div>
+
+			<hr/>
+			<div style="text-align:center;">
+				<span style="width:100%; text-align:center; bottom:10px; font-weight:bold; font-weight:normal;">Copyright 2019. </span>
+			</div>
+		</div>
+	</div>
+</body>
+ 
+</html>

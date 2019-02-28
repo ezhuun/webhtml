@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<TITLE>자바 스크립트 예제</TITLE>
+<style type="text/css">
+* {
+	font-family: gulim;
+	font-size: 22px;
+}
+</style>
+</HEAD>
+
+<BODY>
+	<H2>escape와 unescape</H2>
+
+	<script type="text/javascript">
+		var temp1, temp2;
+
+		// 문자열을 인코딩(암호하)
+		document.write("원본: " + "123-ABC-abc-미합중국/러시아/중국-!?#$%" + "<br><br>");
+
+		temp1 = escape("123-ABC-abc-미합중국/러시아/중국-!?#$%");
+
+		// 인코딩된 문자열을 다시 디코딩(복호화, 원본으로 복구)
+		temp2 = unescape(temp1);
+
+		document.write("escape: " + temp1 + "<br><br>");
+		document.write("unescape: " + temp2);
+	</script>
+
+</BODY>
+</HTML>

@@ -1,0 +1,78 @@
+<!DOCTYPE htmlanel>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+* {
+	font-family: gulim;
+	font-size: 22px;
+}
+
+table, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+td {
+	padding: 5px;
+}
+</style>
+<script>
+		function check(){
+			var f = document.frm;
+			if(isNaN(f.row.value)){
+				alert('행의 수는 숫자만 입력해야 합니다.');
+				f.row.value = "";
+				f.row.focus();
+				return;
+			}
+
+			if(isNaN(f.col.value)){
+				alert('열의 수는 숫자만 입력해야 합니다.');
+				f.col.value = "";
+				f.col.focus();
+				return;
+			}
+			
+			if(f.row.value <3 || f.row.value > 10){
+				alert('행의 수는 3~10사이의 정수만 입력가능합니다');
+				f.row.focus();
+				return;
+			}
+			
+			if(f.col.value <3 || f.col.value > 10){
+				alert('열의 수는 3~10사이의 정수만 입력가능합니다');
+				f.col.focus();
+				return;
+			}
+			makeTable(f.row.value, f.col.value);
+		}
+		
+		function makeTable(row, col){
+			var txt = "<table>";
+			for(var i=1; i<=row; i++){
+				txt += "<tr>";
+				for(var j=1; j<=col; j++){
+					txt += "<td>"+i+"행 "+j+"열</td>";
+				}
+				txt += "</tr>";
+			}
+			txt += "</table>";
+			var ele = document.getElementById("panel");
+			ele.innerHTML = txt;
+		}
+	</script>
+</head>
+
+<body>
+
+	<form name="frm">
+		행의수: <input type="text" name="row" id="row" value="5" size="20" /><br />
+		열의수: <input type="text" name="col" id="col" value="5" size="20" /><br />
+		<button type="button" onclick="check()">테이블 생성</button>
+	</form>
+	<div id='panel'></div>
+
+</body>
+</html>

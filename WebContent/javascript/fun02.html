@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+* {
+	font-family: gulim;
+	font-size: 22px;
+}
+</style>
+<script language="Javascript" src="./core/utility.js"></script>
+</head>
+<body>
+
+	<script type="text/javascript">
+		var member = "user1/123/email@mail.com/0000-1111-2222";
+
+		var strs = member.split('/');
+		console.log(strs);
+		pl(strs[0]);
+		pl(strs[1]);
+		pl(strs[2]);
+		pl(strs[3]);
+
+		var score = "피어슨,90,80,70";
+		/*
+		성명 : 피어슨
+		java : 90
+		javascript : 80
+		jsp : 70
+		tot : 
+		avg :
+		 */
+		pl('<hr>');
+		var temp = score.split(',');
+		var tot = parseInt(temp[1]) + parseInt(temp[2]) + parseInt(temp[3]);
+		var avg = tot / 3;
+		pl("성명 : " + temp[0]);
+		pl("JAVA : " + temp[1]);
+		pl("JAVASCRIPT : " + temp[2]);
+		pl("JSP : " + temp[3]);
+		pl("TOT : " + tot);
+		pl("AVG : " + avg);
+	</script>
+
+</body>
+</html>
